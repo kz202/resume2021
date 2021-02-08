@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Skills</h1>
+<ul>
+    <li><a href="/cv/skills/tag/automation/">Automation</a></li>
+    <li><a href="/cv/skills/tag/cad/">&nbsp&nbspCAD&nbsp</a></li>
+    <li><a href="/cv/skills/tag/django/">Django</a></li>
+    <li><a href="/cv/skills/tag/english/">English</a></li>
+    <li><a href="/cv/skills/tag/electric/">Electric</a></li>
+    <li><a href="/cv/skills/tag/linux/">Linux</a></li>
+    <li><a href="/cv/skills/tag/python/">Python</a></li>
+    <li><a href="/cv/skills/tag/raspberry/">Raspberry Pi</a></li>
+    <li style="float:right"><a class="active" href="/cv/skills/">&nbspAll&nbsp</a></li>
+  </ul>
+<br>
+{% for post in posts %}
+<h2 style='text-align:left'>
+<a href="{{ post.get_absolute_url }}">   
+{{ post.title }}
+</a>
+</h2>
+<p class="tags">
+    Tags:
+    {% for tag in post.tags.all %}
+    <a href="{% url "resume:post_list_by_tag" tag.slug %}">
+    {{ tag.name }}
+    </a>
+    {% if not forloop.last %}, {% endif %}
+{% endfor %}
+</p>
+{{ post.body|truncatewords:50|safe }}
+<br>
+{% endfor %}
+<div style="align-items: center;">
+{% include "pagination.html" with page=posts %}
+</div>
+{% endblock %}
+
+{% block title %} Skills {% endblock %}

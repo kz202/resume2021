@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static "css/style6.css" %}" rel="stylesheet">
+<title>
+  {% block title %}
+  {% endblock %} 
+</title>
+</head>
+<body>
+  <div id="styl2">  <h1>Zawisza Karol</h1>
+    <p class='title'><b>MSc in Electrical Engineering specialization Automation</b></p></div> 
+<br>
+<ul>
+  <li><a href="/cv/">Resume</a></li>
+  <li><a href="/cv/about_me/">About me</a></li>
+  <li><a href="/cv/skills/">&nbsp&nbspSkills&nbsp&nbsp</a></li>
+  <li><a href="/cv/back-end/">Back-end</a></li>
+  <li><a href="/cv/website/">Website</a></li>
+  <li style="float:right"><a class="active" href="/cv/contact/">Contact</a></li>
+</ul>
+<br><br>
+
+<div id="styl1">
+{% block content %}
+{% endblock %}
+</div>
+
+</body>
+</html>

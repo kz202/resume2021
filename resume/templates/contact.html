@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+{% if sent %}
+<h1>Message has been sent.</h1>
+
+{% else %}
+<h1>Information</h1>
+<p>Phone:   570-096-077</p>
+<p>Email:   karrol900@gmail.com</p>
+<a href="https://www.linkedin.com/in/karol-zawisza" target="_blank" >www.linkedin.com/in/karol-zawisza</a>
+<h1>Send me a message</h1>
+<form action="." method="post">
+{{ form.as_p}}
+{% csrf_token %}
+<input type="submit" value="Send">
+</form>
+{% endif %}
+{% endblock %}
+{% block title %} Contact {% endblock %}
